@@ -1,0 +1,139 @@
+%% maths.sty
+%% Copyright 2023 Tom M. Ragonneau
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   https://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2008 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is Tom M. Ragonneau.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{maths}[2023/06/07 v1.0 Mathematical typesetting tools]
+
+% Options
+\newif\if@optimization
+\DeclareOption{optimization}{\@optimizationtrue}
+\DeclareOption*{\PackageWarning{maths}{Unknown `\CurrentOption'}}
+\ProcessOptions\relax
+
+% Preliminary declarations
+\RequirePackage{mathtools}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{cases}
+\RequirePackage{empheq}
+\RequirePackage{etoolbox}
+\RequirePackage{xargs}
+
+% Equation numbering hierarchy
+\@ifclassloaded{manuscript}{\numberwithin{equation}{section}}{}
+
+% Mathematical environments (theorems, proofs, ...)
+\theoremstyle{definition}
+\newtheorem{assumption}{Assumption}[section]
+\newtheorem{axiom}{Axiom}[section]
+\newtheorem{condition}{Condition}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{hypothesis}{Hypothesis}[section]
+\newtheorem{problem}{Problem}[section]
+\newtheorem{property}{Property}[section]
+\newtheorem{question}{Question}[section]
+\theoremstyle{plain}
+\newtheorem{assertion}{Assertion}[section]
+\newtheorem{conjecture}{Conjecture}[section]
+\newtheorem{criterion}{Criterion}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\theoremstyle{remark}
+\newtheorem*{acknowledgment}{Acknowledgment}
+\newtheorem*{case}{case}
+\newtheorem*{claim}{Claim}
+\newtheorem*{conclusion}{Conclusion}
+\newtheorem*{notation}{Notation}
+\newtheorem*{note}{Note}
+\newtheorem*{remark}{Remark}
+\newtheorem*{summary}{Summary}
+
+% Fine-tuning spacing in formulas
+% Make @ behave as per catcode 13 (active). The TeXbook, p. 155.
+\mathcode`@="8000{\catcode`\@=\active\gdef@{\mkern1mu}}
+
+% Operators
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator{\bigo}{\mathcal{O}}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Diag}{Diag}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\hess}{Hess}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\smallo}{o}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\vol}{vol}
+\DeclareMathOperator{\vspan}{span}
+
+% Sets
+\newcommand*{\C}{\mathbb{C}}
+\newcommand*{\F}{\mathbb{F}}
+\newcommand*{\N}{\mathbb{N}}
+\newcommand*{\Q}{\mathbb{Q}}
+\newcommand*{\R}{\mathbb{R}}
+\newcommand*{\Sym}{\mathbb{S}}
+\newcommand*{\Z}{\mathbb{Z}}
+
+% Notations
+\newcommand*{\du}{\mathrm{d}}
+\newcommand*{\eu}{\mathrm{e}}
+\newcommand*{\Id}[1][]{I\ifblank{#1}{}{_{#1}}}
+\newcommand*{\iu}{\mathrm{i}}
+\newcommand*{\pinv}{\dagger}
+\newcommand*{\T}{\mathsf{T}}
+
+% Macros
+\newcommand*{\abs}[2][]{#1\lvert#2#1\rvert}
+\newcommand*{\ceil}[2][]{#1\lceil#2#1\rceil}
+\newcommand*{\floor}[2][]{#1\lfloor#2#1\rfloor}
+\newcommand*{\inner}[2][]{#1\langle#2#1\rangle}
+\newcommand*{\norm}[2][]{#1\lVert#2#1\rVert}
+\newcommand*{\set}[2][]{#1\{#2#1\}}
+\newcommand*{\defeq}{\coloneqq}
+
+% Optimization macros
+\if@optimization
+    \newcommand*{\ceq}[1][]{g\ifblank{#1}{}{_{#1}}}
+    \newcommandx*{\ceqm}[2][1={},2={}]{\hat{\ceq}\ifblank{#1#2}{}{\ifblank{#1}{_{#2}}{\ifblank{#2}{_{#1}}{_{#1, #2}}}}}
+    \newcommand*{\cub}[1][]{h\ifblank{#1}{}{_{#1}}}
+    \newcommandx*{\cubm}[2][1={},2={}]{\hat{\cub}\ifblank{#1#2}{}{\ifblank{#1}{_{#2}}{\ifblank{#2}{_{#1}}{_{#1, #2}}}}}
+    \newcommand*{\fset}{\Omega}
+    \newcommand*{\iter}[1][]{x\ifblank{#1}{}{_{#1}}}
+    \newcommand*{\Iter}[1][]{X\ifblank{#1}{}{_{#1}}}
+    \newcommand*{\lag}[1][]{\mathcal{L}\ifblank{#1}{}{_{#1}}}
+    \newcommand*{\lagm}[1][]{\widehat{\lag}\ifblank{#1}{}{_{#1}}}
+    \newcommand*{\lm}[1][]{\lambda\ifblank{#1}{}{_{#1}}}
+    \newcommand*{\Lm}[1][]{\Lambda\ifblank{#1}{}{_{#1}}}
+    \newcommand*{\merit}[1][]{\varphi\ifblank{#1}{}{_{#1}}}
+    \newcommand*{\meritm}[1][]{\widehat{\merit}\ifblank{#1}{}{_{#1}}}
+    \newcommand*{\obj}{f}
+    \newcommand*{\objm}[1][]{\hat{\obj}\ifblank{#1}{}{_{#1}}}
+    \newcommand*{\rad}[1][]{\Delta\ifblank{#1}{}{_{#1}}}
+    \newcommand*{\ratio}[1][]{\rho\ifblank{#1}{}{_{#1}}}
+    \newcommand*{\step}[1][]{s\ifblank{#1}{}{_{#1}}}
+    \newcommand*{\xl}{l}
+    \newcommand*{\xpt}[1][]{\mathcal{Y}\ifblank{#1}{}{_{#1}}}
+    \newcommand*{\xu}{u}
+\fi
