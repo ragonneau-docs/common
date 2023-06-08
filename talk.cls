@@ -12,3 +12,10 @@
 % This work has the LPPL maintenance status `maintained'.
 %
 % The Current Maintainer of this work is Tom M. Ragonneau.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{common/talk}[2023/06/08 v1.0 Talk LaTeX document class]
+
+% Options
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{beamer}}
+\ProcessOptions\relax
+\LoadClass{beamer}
