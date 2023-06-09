@@ -128,7 +128,10 @@
 % N.B.: the counter `cite' is used to count the number of citations.
 \newcommand{\bibfile}{bib/refs}
 \newcounter{cite}
-\pretocmd{\cite}{\stepcounter{cite}}{}{}
+\preto{\cite}{\stepcounter{cite}}{}{}
+\bibliographystyle{plain}
+\NewCommandCopy{\oldbibliography}{\bibliography}
+\renewcommand{\bibliography}[1]{\ifnum\value{cite}>0\oldbibliography{#1}\fi}
 
 % Keywords-like commands
 \newcommand{\keywords}[1]{
