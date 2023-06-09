@@ -125,7 +125,10 @@
 \usepgfplotslibrary{}
 
 % Bibliography
-\RequirePackage[style=ext-numeric-comp,articlein=false,maxbibnames=99,date=year]{biblatex}
+% N.B.: the counter `cite' is used to count the number of citations.
+\newcommand{\bibfile}{bib/refs}
+\newcounter{cite}
+\pretocmd{\cite}{\stepcounter{cite}}{}{}
 
 % Keywords-like commands
 \newcommand{\keywords}[1]{
