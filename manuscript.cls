@@ -128,6 +128,7 @@
 
 % Bibliography
 % N.B.: the counter `cite' is used to count the number of citations.
+\RequirePackage{cite}  % nosort
 \newcommand{\bibfile}{bib/refs}
 \newcounter{cite}
 \preto{\cite}{\stepcounter{cite}}{}{}
