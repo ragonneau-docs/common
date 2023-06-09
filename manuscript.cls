@@ -115,6 +115,8 @@
 % Algorithms
 \RequirePackage[ruled,lined,longend,linesnumbered]{algorithm2e}
 \SetKwInput{KwNote}{Note}
+\AtBeginEnvironment{algorithm}{\DontPrintSemicolon}
+\renewenvironment{algomathdisplay}{\begin{equation*}}{\@endalgocfline\end{equation*}\ifthenelse{\boolean{algocf@linesnumbered}}{\vspace{-\baselineskip}}{\relax}\;}
 
 % Plots
 \RequirePackage{tikz}
