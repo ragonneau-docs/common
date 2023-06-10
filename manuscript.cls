@@ -67,6 +67,10 @@
 \titleformat{\section}{\normalfont\large\bfseries\sffamily}{\thesection}{1em}{}
 \renewcommand\abstractnamefont{\normalfont\small\bfseries\sffamily}
 
+% Space between lines
+\RequirePackage{setspace}
+\singlespacing
+
 % Subliminal refinements
 \RequirePackage{microtype}
 \RequirePackage[prevent-all]{widows-and-orphans}
