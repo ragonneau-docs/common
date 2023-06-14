@@ -126,9 +126,24 @@
 \RequirePackage{tikz}
 \RequirePackage{pgfplots}
 \RequirePackage{pgfplotstable}
-\pgfplotsset{compat=1.18}
 \usetikzlibrary{}
 \usepgfplotslibrary{}
+\pgfplotscreateplotcyclelist{tropical}{
+    thick,mark=none,teal,solid\\
+    thick,mark=none,orange,dashed\\
+    thick,mark=none,cyan!60!black,dotted\\
+    thick,mark=none,red!70!white,dashdotted\\
+    thick,mark=none,lime!80!black,densely dashed\\
+    thick,mark=none,red,densely dashed\\
+    thick,mark=none,yellow!60!black,densely dashdotted\\
+    thick,mark=none,black,loosely dashed\\
+    thick,mark=none,blue,loosely dotted\\
+    thick,mark=none,red,loosely dashdotted\\
+}
+\pgfplotsset{
+    compat=1.18,
+    cycle list name=tropical,
+}
 
 % Bibliography
 % N.B.: the counter `cite' is used to count the number of citations.
