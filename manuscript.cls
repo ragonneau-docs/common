@@ -30,6 +30,61 @@
 \RequirePackage[dvipsnames]{xcolor}
 \definecolor{Basil}{HTML}{32612D}
 \definecolor{Scarlet}{HTML}{900D09}
+% Color schemes from https://personal.sron.nl/~pault/
+\definecolor{BrightBlue}{HTML}{4477AA}
+\definecolor{BrightCyan}{HTML}{66CCEE}
+\definecolor{BrightGreen}{HTML}{228833}
+\definecolor{BrightYellow}{HTML}{CCBB44}
+\definecolor{BrightRed}{HTML}{EE6677}
+\definecolor{BrightPurple}{HTML}{AA3377}
+\definecolor{BrightGray}{HTML}{BBBBBB}
+\definecolor{DarkBlue}{HTML}{222255}
+\definecolor{DarkCyan}{HTML}{225555}
+\definecolor{DarkGreen}{HTML}{225522}
+\definecolor{DarkYellow}{HTML}{666633}
+\definecolor{DarkRed}{HTML}{663333}
+\definecolor{DarkGray}{HTML}{555555}
+\definecolor{HighContrastYellow}{HTML}{DDAA33}
+\definecolor{HighContrastRed}{HTML}{BB5566}
+\definecolor{HighContrastBlue}{HTML}{004488}
+\definecolor{LightBlue}{HTML}{77AADD}
+\definecolor{LightCyan}{HTML}{99DDFF}
+\definecolor{LightMint}{HTML}{44BB99}
+\definecolor{LightPear}{HTML}{BBCC33}
+\definecolor{LightOlive}{HTML}{AAAA00}
+\definecolor{LightYellow}{HTML}{EEDD88}
+\definecolor{LightOrange}{HTML}{EE8866}
+\definecolor{LightPink}{HTML}{FFAABB}
+\definecolor{LightGray}{HTML}{DDDDDD}
+\definecolor{MediumContrastLightYellow}{HTML}{EECC66}
+\definecolor{MediumContrastLightRed}{HTML}{FE99AA}
+\definecolor{MediumContrastLightBlue}{HTML}{6699CC}
+\definecolor{MediumContrastDarkYellow}{HTML}{997700}
+\definecolor{MediumContrastDarkRed}{HTML}{994455}
+\definecolor{MediumContrastDarkBlue}{HTML}{004488}
+\definecolor{MutedIndigo}{HTML}{332288}
+\definecolor{MutedCyan}{HTML}{88CCEE}
+\definecolor{MutedTeal}{HTML}{44AA99}
+\definecolor{MutedGreen}{HTML}{117733}
+\definecolor{MutedOlive}{HTML}{999933}
+\definecolor{MutedSand}{HTML}{DDCC77}
+\definecolor{MutedRose}{HTML}{CC6677}
+\definecolor{MutedWine}{HTML}{882255}
+\definecolor{MutedPurple}{HTML}{AA4499}
+\definecolor{MutedPaleGray}{HTML}{DDDDDD}
+\definecolor{PaleBlue}{HTML}{BBCCEE}
+\definecolor{PaleCyan}{HTML}{CCEEFF}
+\definecolor{PaleGreen}{HTML}{CCDDAA}
+\definecolor{PaleYellow}{HTML}{EEEEBB}
+\definecolor{PaleRed}{HTML}{FFCCCC}
+\definecolor{PaleGray}{HTML}{DDDDDD}
+\definecolor{VibrantBlue}{HTML}{0077BB}
+\definecolor{VibrantCyan}{HTML}{33BBEE}
+\definecolor{VibrantTeal}{HTML}{009988}
+\definecolor{VibrantOrange}{HTML}{EE7733}
+\definecolor{VibrantRed}{HTML}{CC3311}
+\definecolor{VibrantMagenta}{HTML}{EE3377}
+\definecolor{VibrantGray}{HTML}{BBBBBB}
 
 % To-do notes in draft mode
 % Available commands:
@@ -128,21 +183,82 @@
 \RequirePackage{pgfplotstable}
 \usetikzlibrary{}
 \usepgfplotslibrary{}
-\pgfplotscreateplotcyclelist{tropical}{
-    thick,mark=none,teal,solid\\
-    thick,mark=none,orange,dashed\\
-    thick,mark=none,cyan!60!black,dotted\\
-    thick,mark=none,red!70!white,dashdotted\\
-    thick,mark=none,lime!80!black,densely dashed\\
-    thick,mark=none,red,densely dashed\\
-    thick,mark=none,yellow!60!black,densely dashdotted\\
-    thick,mark=none,black,loosely dashed\\
-    thick,mark=none,blue,loosely dotted\\
-    thick,mark=none,red,loosely dashdotted\\
+\pgfplotscreateplotcyclelist{bright}{
+    BrightBlue,solid\\
+    BrightCyan,dashed\\
+    BrightGreen,dotted\\
+    BrightYellow,dashdotted\\
+    BrightRed,densely dashed\\
+    BrightPurple,densely dotted\\
+    BrightGray,densely dashdotted\\
+}
+\pgfplotscreateplotcyclelist{dark}{
+    DarkBlue,solid\\
+    DarkCyan,dashed\\
+    DarkGreen,dotted\\
+    DarkYellow,dashdotted\\
+    DarkRed,densely dashed\\
+    DarkGray,densely dotted\\
+}
+\pgfplotscreateplotcyclelist{highcontrast}{
+    black,solid\\
+    HighContrastYellow,dashed\\
+    HighContrastRed,dotted\\
+    HighContrastBlue,dashdotted\\
+}
+\pgfplotscreateplotcyclelist{light}{
+    LightBlue,solid\\
+    LightCyan,dashed\\
+    LightMint,dotted\\
+    LightPear,dashdotted\\
+    LightOlive,densely dashed\\
+    LightYellow,densely dotted\\
+    LightOrange,densely dashdotted\\
+    LightPink,loosely dashed\\
+    LightGray,loosely dotted\\
+}
+\pgfplotscreateplotcyclelist{mediumcontrast}{
+    black,solid\\
+    MediumContrastLightYellow,dashed\\
+    MediumContrastLightRed,dotted\\
+    MediumContrastLightBlue,dashdotted\\
+    MediumContrastDarkYellow,densely dashed\\
+    MediumContrastDarkRed,densely dotted\\
+    MediumContrastDarkBlue,densely dashdotted\\
+}
+\pgfplotscreateplotcyclelist{muted}{
+    MutedIndigo,solid\\
+    MutedCyan,dashed\\
+    MutedTeal,dotted\\
+    MutedGreen,dashdotted\\
+    MutedOlive,densely dashed\\
+    MutedSand,densely dotted\\
+    MutedRose,densely dashdotted\\
+    MutedWine,loosely dashed\\
+    MutedPurple,loosely dotted\\
+    MutedPaleGray,loosely dashdotted\\
+}
+\pgfplotscreateplotcyclelist{pale}{
+    PaleBlue,solid\\
+    PaleCyan,dashed\\
+    PaleGreen,dotted\\
+    PaleYellow,dashdotted\\
+    PaleRed,densely dashed\\
+    PaleGray,densely dotted\\
+}
+\pgfplotscreateplotcyclelist{vibrant}{
+    VibrantBlue,solid\\
+    VibrantCyan,dashed\\
+    VibrantTeal,dotted\\
+    VibrantOrange,dashdotted\\
+    VibrantRed,densely dashed\\
+    VibrantMagenta,densely dotted\\
+    VibrantGray,densely dashdotted\\
 }
 \pgfplotsset{
     compat=1.18,
-    cycle list name=tropical,
+    cycle list name=bright,
+    every axis/.append style={very thick},
 }
 
 % Bibliography
