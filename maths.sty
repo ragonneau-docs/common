@@ -13,7 +13,7 @@
 %
 % The Current Maintainer of this work is Tom M. Ragonneau.
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{common/maths}[2023/06/08 v1.0 Mathematical typesetting tools]
+\ProvidesPackage{common/maths}[2023/06/27 v1.0 Mathematical typesetting tools]
 
 % Options
 \newif\if@optimization
@@ -28,6 +28,7 @@
 \RequirePackage{cases}
 \RequirePackage{empheq}
 \RequirePackage{etoolbox}
+\RequirePackage{ifthen}
 \RequirePackage{xargs}
 
 % Equation numbering hierarchy
@@ -108,7 +109,7 @@
 \newcommand*{\ceil}[2][]{#1\lceil#2#1\rceil}
 \newcommand*{\floor}[2][]{#1\lfloor#2#1\rfloor}
 \newcommand*{\inner}[2][]{#1\langle#2#1\rangle}
-\newcommand*{\norm}[2][]{#1\lVert#2#1\rVert}
+\newcommandx*{\norm}[3][1={},2={}]{#1\lVert#3#1\rVert\ifblank{#2}{}{_{\ifthenelse{\equal{#2}{fro}}{\mathsf{F}}{\ifthenelse{\equal{#2}{nuc}}{\ast}{#2}}}}}
 \newcommand*{\set}[2][]{#1\{#2#1\}}
 \newcommand*{\defeq}{\coloneqq}
 \newcommand*{\transpose}[1]{#1^{\T}}
