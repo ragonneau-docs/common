@@ -13,11 +13,13 @@
 %
 % The Current Maintainer of this work is Tom M. Ragonneau.
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{common/maths}[2023/06/27 v1.0 Mathematical typesetting tools]
+\ProvidesPackage{common/maths}[2023/06/29 v1.0 Mathematical typesetting tools]
 
 % Options
 \newif\if@optimization
+\newif\if@statistics
 \DeclareOption{optimization}{\@optimizationtrue}
+\DeclareOption{statistics}{\@statisticstrue}
 \DeclareOption*{\PackageWarning{maths}{Unknown `\CurrentOption'}}
 \ProcessOptions\relax
 
@@ -167,4 +169,13 @@
     \newcommand*{\xpt}[1][]{\mathcal{Y}\ifblank{#1}{}{_{#1}}}
     \newcommand*{\xu}{u}
     \newcommand*{\Xu}{U}
+\fi
+
+% Statistics macros
+\if@statistics
+    \DeclareMathOperator{\var}{var}
+    \DeclareMathOperator{\Var}{Var}
+    \newcommand*{\E}{\mathbb{E}}
+    \newcommand*{\gaussd}{\mathcal{N}}
+    \renewcommand*{\Pr}{\mathbb{P}}
 \fi
