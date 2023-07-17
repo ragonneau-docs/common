@@ -32,6 +32,7 @@
 \RequirePackage{etoolbox}
 \RequirePackage{ifthen}
 \RequirePackage{xargs}
+\RequirePackage{relsize}
 
 % Equation numbering hierarchy
 \@ifclassloaded{manuscript}{\numberwithin{equation}{section}}{}
@@ -113,14 +114,14 @@
 \newcommand*{\inner}[2][]{#1\langle#2#1\rangle}
 \newcommandx*{\norm}[3][1={},2={}]{#1\lVert#3#1\rVert\ifblank{#2}{}{_{\ifthenelse{\equal{#2}{fro}}{\mathsf{F}}{\ifthenelse{\equal{#2}{nuc}}{\ast}{#2}}}}}
 \newcommand*{\set}[2][]{#1\{#2#1\}}
-\newcommand*{\defeq}{\coloneqq}
+\newcommand*{\defeq}{\stackrel{\mathsmaller{\mathsf{def}}}{=}}
 \newcommand*{\transpose}[1]{#1^{\T}}
 
 % Optimization macros
 \if@optimization
-    \newcommand*{\ceq}[1][]{g\ifblank{#1}{}{_{#1}}}
+    \newcommand*{\ceq}[1][]{h\ifblank{#1}{}{_{#1}}}
     \newcommandx*{\ceqm}[2][1={},2={}]{\hat{\ceq}\ifblank{#1#2}{}{\ifblank{#1}{_{#2}}{\ifblank{#2}{_{#1}}{_{#1, #2}}}}}
-    \newcommand*{\cub}[1][]{h\ifblank{#1}{}{_{#1}}}
+    \newcommand*{\cub}[1][]{g\ifblank{#1}{}{_{#1}}}
     \newcommandx*{\cubm}[2][1={},2={}]{\hat{\cub}\ifblank{#1#2}{}{\ifblank{#1}{_{#2}}{\ifblank{#2}{_{#1}}{_{#1, #2}}}}}
     \newcommand*{\fset}{\Omega}
     \newcommand*{\gradv}[1][]{g\ifblank{#1}{}{_{#1}}}
