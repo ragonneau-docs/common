@@ -140,7 +140,6 @@
 % Modify the typesets of the `\maketitle' and `\thanks' commands
 \RequirePackage{titling}
 \setlength{\thanksmargin}{0pt}
-\AtBeginDocument{\NewCommandCopy{\thedoctitle}{\thetitle}}
 
 % Headers and footers
 \RequirePackage{fancyhdr}
@@ -155,7 +154,7 @@
     \renewcommand{\headrulewidth}{0pt}
     \fancyhead[L]{\small\ifnumodd{\value{page}}{}{\thepage}}
     \fancyhead[R]{\small\ifnumodd{\value{page}}{\thepage}{}}
-    \fancyhead[C]{\small\textsc{\ifnumodd{\value{page}}{\thedoctitle}{\theauthor}}}
+    \fancyhead[C]{\small\textsc{\ifnumodd{\value{page}}{\@headtitle}{\theauthor}}}
 }
 \pagestyle{main}
 
@@ -268,8 +267,8 @@
 \newcounter{cite}
 \preto{\cite}{\stepcounter{cite}}{}{}
 \bibliographystyle{plain}
-\NewCommandCopy{\oldbibliography}{\bibliography}
-\renewcommand{\bibliography}[1]{\ifnum\value{cite}>0\oldbibliography{#1}\fi}
+\NewCommandCopy{\old@bibliography}{\bibliography}
+\renewcommand{\bibliography}[1]{\ifnum\value{cite}>0\old@bibliography{#1}\fi}
 
 % Keywords-like commands
 \newcommand{\keywords}[1]{
@@ -319,6 +318,11 @@
 \setabbreviationstyle[acronym]{long-short}
 \glsdisablehyper
 \loadglsentries{common/glossary}
+
+% Add an optional "short title" argument to the `\title' command
+% N.B.: This must be defined after loading `hyperref'
+\NewCommandCopy{\old@title}{\title}
+\renewcommand{\title}[2][]{\old@title{#2}\newcommand{\@headtitle}{\ifblank{#1}{#2}{#1}}}
 
 % Headings
 \date{\ifdraft{\DTMnow}{\today}}
