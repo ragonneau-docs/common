@@ -23,6 +23,7 @@
 
 % Preliminary declarations
 \RequirePackage[a4paper]{geometry}
+\RequirePackage[indent]{parskip}
 \RequirePackage{etoolbox}
 \RequirePackage{ifdraft}
 
@@ -268,7 +269,7 @@
 \preto{\cite}{\stepcounter{cite}}{}{}
 \bibliographystyle{plain}
 \NewCommandCopy{\old@bibliography}{\bibliography}
-\renewcommand{\bibliography}[1]{\ifnum\value{cite}>0\old@bibliography{#1}\fi}
+\renewcommand{\bibliography}[1]{\ifnum\value{cite}>0\small\old@bibliography{#1}\fi}
 
 % Keywords-like commands
 \newcommand{\keywords}[1]{
