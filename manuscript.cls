@@ -124,7 +124,7 @@
 \renewcommand\abstractnamefont{\normalfont\small\bfseries\sffamily}
 
 % Space between lines
-\RequirePackage{setspace}
+\RequirePackage[nodisplayskipstretch]{setspace}
 \singlespacing
 
 % Subliminal refinements
