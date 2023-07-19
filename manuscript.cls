@@ -121,6 +121,7 @@
 \RequirePackage[sf,bf,nobottomtitles*,]{titlesec}
 \RequirePackage{abstract}
 \titleformat{\section}{\normalfont\large\bfseries\sffamily}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
 \renewcommand\abstractnamefont{\normalfont\small\bfseries\sffamily}
 
 % Space between lines
@@ -140,6 +141,10 @@
 
 % Modify the typesets of the `\maketitle' and `\thanks' commands
 \RequirePackage{titling}
+\pretitle{\begin{center}\Large}
+\posttitle{\par\end{center}\vskip 1em}
+\preauthor{\begin{center}\large \lineskip 0.5em\begin{tabular}[t]{c}}
+\postauthor{\end{tabular}\par\end{center}\vskip 1em}
 \setlength{\thanksmargin}{0pt}
 
 % Headers and footers
@@ -323,7 +328,8 @@
 % Add an optional "short title" argument to the `\title' command
 % N.B.: This must be defined after loading `hyperref'
 \NewCommandCopy{\old@title}{\title}
-\renewcommand{\title}[2][]{\old@title{#2}\newcommand{\@headtitle}{\ifblank{#1}{#2}{#1}}}
+\newcommand{\@headtitle}{}
+\renewcommand{\title}[2][]{\old@title{#2}\renewcommand{\@headtitle}{\ifblank{#1}{#2}{#1}}}
 
 % Headings
 \date{\ifdraft{\DTMnow}{\today}}
