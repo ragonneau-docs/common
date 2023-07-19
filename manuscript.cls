@@ -30,7 +30,7 @@
 % Colors
 \RequirePackage[dvipsnames]{xcolor}
 \definecolor{Basil}{HTML}{32612D}
-\definecolor{Scarlet}{HTML}{900D09}
+\definecolor{Berry}{HTML}{7A1712}
 % Color schemes from https://personal.sron.nl/~pault/
 \definecolor{BrightBlue}{HTML}{4477AA}
 \definecolor{BrightCyan}{HTML}{66CCEE}
@@ -303,7 +303,7 @@
 \hypersetup{
     final,
     colorlinks=true,
-    linkcolor=Scarlet,
+    linkcolor=Berry,
     citecolor=Basil,
     urlcolor=RedViolet,
 }
