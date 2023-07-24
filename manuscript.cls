@@ -188,6 +188,7 @@
 \AtBeginEnvironment{algorithm}{\DontPrintSemicolon}
 \renewenvironment{algomathdisplay}{\begin{equation}}{\@endalgocfline\end{equation}\ifthenelse{\boolean{algocf@linesnumbered}}{\vspace{-\baselineskip}}{\relax}\;}
 \newenvironment{algomathdisplay*}{\begin{equation*}}{\@endalgocfline\end{equation*}\ifthenelse{\boolean{algocf@linesnumbered}}{\vspace{-\baselineskip}}{\relax}\;}
+\newenvironment{algomathalign}[1]{\align #1}{\@endalgocfline\endalign\ifthenelse{\boolean{algocf@linesnumbered}}{\vspace{-\baselineskip}}{\relax}\;}
 
 % Plots
 \RequirePackage{tikz}
@@ -318,6 +319,7 @@
 % Automatic references
 % N.B.: `cleveref' must be loaded after `hyperref'
 \RequirePackage[capitalize,noabbrev]{cleveref}
+\newcommand{\crefrangeconjunction}{--}
 \crefname{equation}{}{}
 \Crefname{equation}{}{}
 \crefname{lstlisting}{Listing}{Listings}
