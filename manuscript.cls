@@ -173,8 +173,14 @@
 % Captions
 \RequirePackage{caption}
 \RequirePackage{subcaption}
-\captionsetup*[figure]{position=below}
-\captionsetup*[table]{position=above}
+\captionsetup*[figure]{
+    position=below,
+    font+=smaller,
+}
+\captionsetup*[table]{
+    position=above,
+    font+=smaller,
+}
 
 % Algorithms
 \RequirePackage[ruled,lined,longend,linesnumbered]{algorithm2e}
@@ -187,8 +193,6 @@
 \RequirePackage{tikz}
 \RequirePackage{pgfplots}
 \RequirePackage{pgfplotstable}
-\usetikzlibrary{}
-\usepgfplotslibrary{}
 \pgfplotscreateplotcyclelist{bright}{
     BrightBlue,solid\\
     BrightCyan,dashed\\
