@@ -166,6 +166,8 @@
 
 % List environments
 \RequirePackage{enumitem}
+\setlist[itemize]{noitemsep}
+\setlist[enumerate]{noitemsep}
 
 % SI units
 \RequirePackage{siunitx}
