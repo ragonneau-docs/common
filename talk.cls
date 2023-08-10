@@ -126,10 +126,6 @@
 \bibliographystyle{apalike}
 \NewCommandCopy{\old@bibliography}{\bibliography}
 \renewcommand{\bibliography}[1]{\ifnum\value{cite}>0\old@bibliography{#1}\fi}
-\setbeamerfont{bibliography entry author}{size=\footnotesize}
-\setbeamerfont{bibliography entry title}{size=\footnotesize}
-\setbeamerfont{bibliography entry location}{size=\footnotesize}
-\setbeamerfont{bibliography entry note}{size=\footnotesize}
 
 % SI units
 \RequirePackage{siunitx}
