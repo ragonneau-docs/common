@@ -15,7 +15,8 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{common/talk}[2023/08/07 v1.0 Talk LaTeX document class]
 
-% Options
+% Options% Options
+\DeclareOption{optimization}{\PassOptionsToPackage{optimization}{common/maths}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{beamer}}
 \ProcessOptions\relax
 \LoadClass[10pt,xcolor=dvipsnames]{beamer}
@@ -116,8 +117,34 @@
 % Subliminal refinements
 \RequirePackage{microtype}
 
+% Bibliography
+% N.B.: the counter `cite' is used to count the number of citations.
+\RequirePackage{cite}  % nosort
+\newcommand{\bibfile}{bib/refs}
+\newcounter{cite}
+\preto{\cite}{\stepcounter{cite}}{}{}
+\bibliographystyle{apalike}
+\NewCommandCopy{\old@bibliography}{\bibliography}
+\renewcommand{\bibliography}[1]{\ifnum\value{cite}>0\old@bibliography{#1}\fi}
+\setbeamerfont{bibliography entry author}{size=\footnotesize}
+\setbeamerfont{bibliography entry title}{size=\footnotesize}
+\setbeamerfont{bibliography entry location}{size=\footnotesize}
+\setbeamerfont{bibliography entry note}{size=\footnotesize}
+
 % SI units
 \RequirePackage{siunitx}
+
+% Mathematics
+\RequirePackage{common/maths}
+
+% Graphics
+\RequirePackage{tikz}
+\RequirePackage{pgfplots}
+
+% Cancel text
+\RequirePackage{cancel}
+\NewCommandCopy{\old@cancel}{\cancel}
+\renewcommand<>{\cancel}[1]{\alt#2{\old@cancel{#1}\vphantom{#1}}{#1}}
 
 % QR codes
 \ifdraft{\PassOptionsToPackage{draft}{qrcode}}{}

@@ -39,34 +39,36 @@
 \@ifclassloaded{manuscript}{\numberwithin{equation}{section}}{}
 
 % Mathematical environments (theorems, proofs, ...)
-\theoremstyle{definition}
-\newtheorem{assumption}{Assumption}[section]
-\newtheorem{axiom}{Axiom}[section]
-\newtheorem{condition}{Condition}[section]
-\newtheorem{definition}{Definition}[section]
-\newtheorem{example}{Example}[section]
-\newtheorem{exercise}{Exercise}[section]
-\newtheorem{hypothesis}{Hypothesis}[section]
-\newtheorem{problem}{Problem}[section]
-\newtheorem{property}{Property}[section]
-\newtheorem{question}{Question}[section]
-\theoremstyle{plain}
-\newtheorem{assertion}{Assertion}[section]
-\newtheorem{conjecture}{Conjecture}[section]
-\newtheorem{criterion}{Criterion}[section]
-\newtheorem{lemma}{Lemma}[section]
-\newtheorem{proposition}{Proposition}[section]
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{corollary}{Corollary}[theorem]
-\theoremstyle{remark}
-\newtheorem*{acknowledgment}{Acknowledgment}
-\newtheorem*{case}{case}
-\newtheorem*{claim}{Claim}
-\newtheorem*{conclusion}{Conclusion}
-\newtheorem*{notation}{Notation}
-\newtheorem*{note}{Note}
-\newtheorem*{remark}{Remark}
-\newtheorem*{summary}{Summary}
+\@ifclassloaded{manuscript}{
+    \theoremstyle{definition}
+    \newtheorem{assumption}{Assumption}[section]
+    \newtheorem{axiom}{Axiom}[section]
+    \newtheorem{condition}{Condition}[section]
+    \newtheorem{definition}{Definition}[section]
+    \newtheorem{example}{Example}[section]
+    \newtheorem{exercise}{Exercise}[section]
+    \newtheorem{hypothesis}{Hypothesis}[section]
+    \newtheorem{problem}{Problem}[section]
+    \newtheorem{property}{Property}[section]
+    \newtheorem{question}{Question}[section]
+    \theoremstyle{plain}
+    \newtheorem{assertion}{Assertion}[section]
+    \newtheorem{conjecture}{Conjecture}[section]
+    \newtheorem{criterion}{Criterion}[section]
+    \newtheorem{lemma}{Lemma}[section]
+    \newtheorem{proposition}{Proposition}[section]
+    \newtheorem{theorem}{Theorem}[section]
+    \newtheorem{corollary}{Corollary}[theorem]
+    \theoremstyle{remark}
+    \newtheorem*{acknowledgment}{Acknowledgment}
+    \newtheorem*{case}{case}
+    \newtheorem*{claim}{Claim}
+    \newtheorem*{conclusion}{Conclusion}
+    \newtheorem*{notation}{Notation}
+    \newtheorem*{note}{Note}
+    \newtheorem*{remark}{Remark}
+    \newtheorem*{summary}{Summary}
+}
 
 % Make @ behave as per catcode 13 (active). The TeXbook, p. 155.
 \mathcode`@="8000{\catcode`\@=\active\gdef@{\mkern1mu}}
