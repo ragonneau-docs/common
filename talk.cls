@@ -28,7 +28,7 @@
 \RequirePackage{appendixnumberbeamer}
 \usetheme{metropolis}
 \metroset{
-    titleformat=smallcaps,
+    % titleformat=smallcaps,
     numbering=fraction,
     progressbar=frametitle,
     block=fill,
@@ -150,3 +150,10 @@
 \setlength{\XeTeXLinkMargin}{1pt}
 \let\old@qrcode\qrcode\relax
 \def\qrcode#1{\href{#1}{\XeTeXLinkBox{\old@qrcode{#1}}}}
+
+% Quoting support
+\usepackage[
+    begintext=\openautoquote,
+    endtext=\closeautoquote,
+    vskip=\topsep,
+]{quoting}
