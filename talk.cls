@@ -143,14 +143,16 @@
 \RequirePackage{microtype}
 
 % Bibliography
-% N.B.: the counter `cite' is used to count the number of citations.
-\RequirePackage{cite}  % nosort
-\newcommand{\bibfile}{bib/refs}
-\newcounter{cite}
-\preto{\cite}{\stepcounter{cite}}{}{}
-\bibliographystyle{apalike}
-\NewCommandCopy{\old@bibliography}{\bibliography}
-\renewcommand{\bibliography}[1]{\ifnum\value{cite}>0\old@bibliography{#1}\fi}
+\RequirePackage[
+    style=ext-authoryear-comp,
+    articlein=false,
+    sortcites=false,
+    maxcitenames=3,
+]{biblatex}
+\setbeamertemplate{bibliography item}[triangle]
+\DeclareNameAlias{author}{family-given}
+\setlength{\bibitemsep}{\itemsep}
+\newcommand{\bibfile}{bib/refs.bib}
 
 % SI units
 \RequirePackage{siunitx}
