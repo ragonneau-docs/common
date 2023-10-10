@@ -13,7 +13,7 @@
 %
 % The Current Maintainer of this work is Tom M. Ragonneau.
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{common/manuscript}[2023/06/08 v1.0 Manuscript LaTeX document class]
+\ProvidesClass{common/manuscript}[2023/10/10 v1.0 Manuscript LaTeX document class]
 
 % Options
 \DeclareOption{optimization}{\PassOptionsToPackage{optimization}{common/maths}}
@@ -66,7 +66,7 @@
 \RequirePackage[sf,bf,nobottomtitles*,]{titlesec}
 \RequirePackage{abstract}
 \titleformat{\section}{\normalfont\large\bfseries\sffamily}{\thesection}{1em}{}
-\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries\sffamily}{\thesubsection}{1em}{}
 \renewcommand\abstractnamefont{\normalfont\small\bfseries\sffamily}
 
 % Space between lines
@@ -148,7 +148,7 @@
 
 % Bibliography
 % N.B.: the counter `cite' is used to count the number of citations.
-\RequirePackage{cite}  % nosort
+\RequirePackage{cite}
 \newcommand{\bibfile}{bib/refs}
 \newcounter{cite}
 \preto{\cite}{\stepcounter{cite}}{}{}

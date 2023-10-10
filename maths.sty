@@ -13,7 +13,7 @@
 %
 % The Current Maintainer of this work is Tom M. Ragonneau.
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{common/maths}[2023/06/29 v1.0 Mathematical typesetting tools]
+\ProvidesPackage{common/maths}[2023/10/10 v1.0 Mathematical typesetting tools]
 
 % Options
 \newif\if@optimization
@@ -90,6 +90,8 @@
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\smallo}{o}
 \DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\var}{var}
+\DeclareMathOperator{\Var}{Var}
 \DeclareMathOperator{\vol}{vol}
 \DeclareMathOperator{\vspan}{span}
 
@@ -99,15 +101,17 @@
 \newcommand*{\N}{\mathbb{N}}
 \newcommand*{\Q}{\mathbb{Q}}
 \newcommand*{\R}{\mathbb{R}}
-\newcommand*{\Sym}{\mathbb{S}}
 \newcommand*{\Z}{\mathbb{Z}}
 
 % Notations
 \newcommand*{\du}{\mathrm{d}}
+\newcommand*{\E}{\mathbb{E}}
 \newcommand*{\eu}{\mathrm{e}}
 \newcommand*{\Id}[1][]{I\ifblank{#1}{}{_{#1}}}
 \newcommand*{\iu}{\mathrm{i}}
+\newcommand*{\ones}{\mathbb{1}}
 \newcommand*{\pinv}{\dagger}
+\renewcommand*{\Pr}{\mathbb{P}}
 \newcommand*{\T}{\mathsf{T}}
 
 % Macros
@@ -183,9 +187,5 @@
 
 % Statistics macros
 \if@statistics
-    \DeclareMathOperator{\var}{var}
-    \DeclareMathOperator{\Var}{Var}
-    \newcommand*{\E}{\mathbb{E}}
     \newcommand*{\gaussd}{\mathcal{N}}
-    \renewcommand*{\Pr}{\mathbb{P}}
 \fi
