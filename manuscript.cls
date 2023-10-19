@@ -147,14 +147,18 @@
 }
 
 % Bibliography
-% N.B.: the counter `cite' is used to count the number of citations.
-\RequirePackage{cite}
-\newcommand{\bibfile}{bib/refs}
-\newcounter{cite}
-\preto{\cite}{\stepcounter{cite}}{}{}
-\bibliographystyle{plain}
-\NewCommandCopy{\old@bibliography}{\bibliography}
-\renewcommand{\bibliography}[1]{\ifnum\value{cite}>0\small\old@bibliography{#1}\fi}
+\RequirePackage[
+    style=ext-numeric-comp,
+    sorting=nyt,
+    sortcase=false,
+    sortcites=true,
+    maxbibnames=99,
+    date=year,
+    articlein=false,
+]{biblatex}
+\renewcommand*{\bibfont}{\small}
+\setlength\bibitemsep{\parsep}
+\renewbibmacro*{edition}{\iffieldundef{edition}{}{\printfield{edition} edition}}
 
 % Keywords-like commands
 \newcommand{\keywords}[1]{
