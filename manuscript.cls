@@ -122,10 +122,12 @@
 \RequirePackage{subcaption}
 \captionsetup*[figure]{
     position=below,
+    labelfont=sc,
     font+=smaller,
 }
 \captionsetup*[table]{
     position=above,
+    labelfont=sc,
     font+=smaller,
 }
 
@@ -157,7 +159,7 @@
     articlein=false,
 ]{biblatex}
 \renewcommand*{\bibfont}{\small}
-\setlength\bibitemsep{\parsep}
+\setlength{\bibitemsep}{\parsep}
 \renewbibmacro*{edition}{\iffieldundef{edition}{}{\printfield{edition} edition}}
 
 % Keywords-like commands
