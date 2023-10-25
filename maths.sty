@@ -182,7 +182,7 @@
     \newcommand*{\tstep}[1][]{t\ifblank{#1}{}{_{#1}}}
     \newcommand*{\xl}{l}
     \newcommand*{\Xl}{L}
-    \newcommand*{\xpt}[1][]{\mathcal{Y}\ifblank{#1}{}{_{#1}}}
+    \newcommandx*{\xpt}[2][1={},2={}]{\ifblank{#1}{\mathcal{Y}}{\ifblank{#2}{\mathcal{Y}_{#1}}{y_{#1, #2}}}}
     \newcommand*{\xu}{u}
     \newcommand*{\Xu}{U}
 \fi
