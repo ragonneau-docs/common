@@ -16,7 +16,6 @@
 \ProvidesClass{common/manuscript}[2023/10/10 v1.0 Manuscript LaTeX document class]
 
 % Options
-\DeclareOption{optimization}{\PassOptionsToPackage{optimization}{common/maths}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 \LoadClass{article}
