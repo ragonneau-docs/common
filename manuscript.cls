@@ -124,10 +124,16 @@
     labelfont=sc,
     font+=smaller,
 }
+\captionsetup*[subfigure]{
+    labelfont=normalfont,
+}
 \captionsetup*[table]{
     position=above,
     labelfont=sc,
     font+=smaller,
+}
+\captionsetup*[subtable]{
+    labelfont=normalfont,
 }
 
 % Algorithms
