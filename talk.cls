@@ -16,7 +16,6 @@
 \ProvidesClass{common/talk}[2023/08/07 v1.0 Talk LaTeX document class]
 
 % Options% Options
-\DeclareOption{optimization}{\PassOptionsToPackage{optimization}{common/maths}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{beamer}}
 \ProcessOptions\relax
 \LoadClass[10pt,xcolor=dvipsnames]{beamer}
@@ -152,7 +151,6 @@
 \setbeamertemplate{bibliography item}[triangle]
 \DeclareNameAlias{author}{family-given}
 \setlength{\bibitemsep}{\itemsep}
-\newcommand{\bibfile}{bib/refs.bib}
 
 % SI units
 \RequirePackage{siunitx}
