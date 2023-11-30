@@ -83,6 +83,9 @@
 \binoppenalty=10000
 \relpenalty=10000
 
+% Raise an error if a glyph is missing
+\tracinglostchars=3
+
 % Modify the typesets of the `\maketitle' and `\thanks' commands
 \RequirePackage{titling}
 \pretitle{\begin{center}\Large}
