@@ -107,7 +107,7 @@
     \renewcommand{\headrulewidth}{0pt}
     \fancyhead[L]{\small\ifnumodd{\value{page}}{}{\thepage}}
     \fancyhead[R]{\small\ifnumodd{\value{page}}{\thepage}{}}
-    \fancyhead[C]{\small\textsc{\ifnumodd{\value{page}}{\@headtitle}{\theauthor}}}
+    \fancyhead[C]{\small\textsc{\ifnumodd{\value{page}}{\@headtitle}{\@headauthor}}}
 }
 \pagestyle{main}
 
@@ -224,7 +224,25 @@
 % N.B.: This must be defined after loading `hyperref'
 \NewCommandCopy{\old@title}{\title}
 \newcommand{\@headtitle}{}
-\renewcommand{\title}[2][]{\old@title{#2}\renewcommand{\@headtitle}{\ifblank{#1}{#2}{#1}}}
+\renewcommand{\title}[2][]{
+    \old@title{#2}
+    \renewcommand{\@headtitle}{\ifblank{#1}{#2}{#1}}
+}
+
+% Add an optional "short author" argument to the `\author' command
+% N.B.: This must be defined after loading `hyperref'
+\NewCommandCopy{\old@author}{\author}
+\newcommand{\@headauthor}{}
+\renewcommand{\author}[2][]{
+    \old@author{#2}
+    \renewcommand{\@headauthor}{%
+        \renewcommand{\thanks}[1]{}%
+        \renewcommand{\thanksgap}[1]{}%
+        \renewcommand{\thanksmark}[1]{}%
+        \renewcommand{\and}{\unskip, }%
+        \ifblank{#1}{#2}{#1}%
+    }
+}
 
 % Headings
 \date{\ifdraft{\DTMnow}{\today}}
