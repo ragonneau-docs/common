@@ -159,12 +159,12 @@
 % Bibliography
 \RequirePackage[
     style=ext-numeric-comp,
+    articlein=false,
     sorting=nyt,
     sortcase=false,
-    sortcites=true,
+    sortcites,
     maxbibnames=99,
     date=year,
-    articlein=false,
 ]{biblatex}
 \renewcommand*{\bibfont}{\small}
 \setlength{\bibitemsep}{\parsep}
@@ -196,7 +196,7 @@
 \RequirePackage{url}
 \hypersetup{
     final,
-    colorlinks=true,
+    colorlinks,
     linkcolor=Berry,
     citecolor=Basil,
     urlcolor=RedViolet,
