@@ -13,7 +13,7 @@
 %
 % The Current Maintainer of this work is Tom M. Ragonneau.
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{common/manuscript}[2023/10/10 v1.0 Manuscript LaTeX document class]
+\ProvidesClass{common/manuscript}[2023/12/21 v1.0 Manuscript LaTeX document class]
 
 % Options
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
@@ -43,7 +43,7 @@
 % - \fxerror*[options]{<note>}{<text>}
 % - \fxfatal*[options]{<note>}{<text>}
 \RequirePackage[author={}]{fixme}
-\fxsetup{marginface=\scriptsize\sffamily\color{gray}}
+\fxsetup{marginface=\normalfont\scriptsize\sffamily\color{gray}}
 
 % Add line numbers in draft mode
 \RequirePackage[mathlines]{lineno}
@@ -51,7 +51,7 @@
 \renewcommand{\linenumberfont}{\normalfont\scriptsize\sffamily\color{gray}}
 \setlength{\linenumbersep}{\marginparsep}
 
-% Manage culturally-determined typographical rules
+% Culturally-determined typographical rules
 % N.B.: `csquotes' must be loaded after `lineno'
 \RequirePackage[american]{babel}
 \RequirePackage{csquotes}
@@ -64,9 +64,9 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage[sf,bf,nobottomtitles*,]{titlesec}
 \RequirePackage{abstract}
-\titleformat{\section}{\normalfont\large\bfseries\sffamily}{\thesection}{1em}{}
-\titleformat{\subsection}{\normalfont\normalsize\bfseries\sffamily}{\thesubsection}{1em}{}
-\renewcommand\abstractnamefont{\normalfont\small\bfseries\sffamily}
+\titleformat{\section}{\normalfont\sffamily\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\sffamily\normalsize\bfseries}{\thesubsection}{1em}{}
+\renewcommand\abstractnamefont{\normalfont\sffamily\small\bfseries}
 
 % Space between lines
 \RequirePackage[nodisplayskipstretch]{setspace}
@@ -75,15 +75,12 @@
 % Subliminal refinements
 \RequirePackage{microtype}
 \RequirePackage[prevent-all]{widows-and-orphans}
-
-% Prevent footnotes from splitting across pages
+% prevent footnotes from splitting across pages
 \interfootnotelinepenalty=10000
-
-% Prevent line breaks in inline formulas
+% prevent line breaks in inline formulas
 \binoppenalty=10000
 \relpenalty=10000
-
-% Raise an error if a glyph is missing
+% raise an error if a glyph is missing
 \tracinglostchars=3
 
 % Modify the typesets of the `\maketitle' and `\thanks' commands
@@ -202,7 +199,7 @@
     urlcolor=RedViolet,
 }
 \newcommand*{\email}[1]{\href{mailto:#1}{\texttt{#1}}}
-\newcommand*{\orcid}[1]{\href{https://orcid.org/#1}{#1}}
+\newcommand*{\orcid}[1]{\href{https://orcid.org/#1}{\texttt{#1}}}
 
 % Automatic references
 % N.B.: `cleveref' must be loaded after `hyperref'
