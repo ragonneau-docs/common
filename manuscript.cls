@@ -199,7 +199,7 @@
     urlcolor=RedViolet,
 }
 \newcommand*{\email}[1]{\href{mailto:#1}{\texttt{#1}}}
-\newcommand*{\orcid}[1]{\href{https://orcid.org/#1}{\texttt{#1}}}
+\newcommand*{\orcid}[1]{\href{https://orcid.org/#1}{#1}}
 
 % Automatic references
 % N.B.: `cleveref' must be loaded after `hyperref'
