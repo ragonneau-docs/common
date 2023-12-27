@@ -13,7 +13,7 @@
 %
 % The Current Maintainer of this work is Tom M. Ragonneau.
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{common/manuscript}[2023/12/21 v1.0 Manuscript LaTeX document class]
+\ProvidesClass{common/manuscript}[2023/12/27 v1.0 Manuscript LaTeX document class]
 
 % Options
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
@@ -55,6 +55,7 @@
 % N.B.: `csquotes' must be loaded after `lineno'
 \RequirePackage[american]{babel}
 \RequirePackage{csquotes}
+\input{ushyphex.tex}
 
 % Formats for dates and times
 \RequirePackage[useregional,showzone=false]{datetime2}
@@ -199,7 +200,7 @@
     urlcolor=RedViolet,
 }
 \newcommand*{\email}[1]{\href{mailto:#1}{\texttt{#1}}}
-\newcommand*{\orcid}[1]{\href{https://orcid.org/#1}{#1}}
+\newcommand*{\orcid}[1]{\href{https://orcid.org/#1}{\texttt{#1}}}
 
 % Automatic references
 % N.B.: `cleveref' must be loaded after `hyperref'
