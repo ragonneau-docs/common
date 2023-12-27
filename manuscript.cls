@@ -163,6 +163,7 @@
     sortcites,
     maxbibnames=99,
     date=year,
+    urldate=long,
 ]{biblatex}
 \renewcommand*{\bibfont}{\small}
 \setlength{\bibitemsep}{\parsep}
