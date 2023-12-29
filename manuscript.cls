@@ -60,29 +60,9 @@
 % Formats for dates and times
 \RequirePackage[useregional,showzone=false]{datetime2}
 
-% Font and encoding
-\RequirePackage{lmodern}
-\RequirePackage[T1]{fontenc}
-\RequirePackage[sf,bf,nobottomtitles*,]{titlesec}
-\RequirePackage{abstract}
-\titleformat{\section}{\normalfont\sffamily\large\bfseries}{\thesection}{1em}{}
-\titleformat{\subsection}{\normalfont\sffamily\normalsize\bfseries}{\thesubsection}{1em}{}
-\renewcommand\abstractnamefont{\normalfont\sffamily\small\bfseries}
-
 % Space between lines
 \RequirePackage[nodisplayskipstretch]{setspace}
 \singlespacing
-
-% Subliminal refinements
-\RequirePackage{microtype}
-\RequirePackage[prevent-all]{widows-and-orphans}
-% prevent footnotes from splitting across pages
-\interfootnotelinepenalty=10000
-% prevent line breaks in inline formulas
-\binoppenalty=10000
-\relpenalty=10000
-% raise an error if a glyph is missing
-\tracinglostchars=3
 
 % Modify the typesets of the `\maketitle' and `\thanks' commands
 \RequirePackage{titling}
@@ -189,6 +169,26 @@
 
 % Mathematics
 \RequirePackage{common/maths}
+
+% Font and encoding
+\RequirePackage{lmodern}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[sf,bf,nobottomtitles*,]{titlesec}
+\RequirePackage{abstract}
+\titleformat{\section}{\normalfont\sffamily\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\sffamily\normalsize\bfseries}{\thesubsection}{1em}{}
+\renewcommand\abstractnamefont{\normalfont\sffamily\small\bfseries}
+
+% Subliminal refinements
+\RequirePackage{microtype}
+\RequirePackage[prevent-all]{widows-and-orphans}
+% prevent footnotes from splitting across pages
+\interfootnotelinepenalty=10000
+% prevent line breaks in inline formulas
+\binoppenalty=10000
+\relpenalty=10000
+% raise an error if a glyph is missing
+\tracinglostchars=3
 
 % Cross-referencing
 \RequirePackage[pdfusetitle,hyperfootnotes=false]{hyperref}
