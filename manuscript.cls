@@ -138,6 +138,7 @@
 \RequirePackage[
     style=ext-numeric-comp,
     articlein=false,
+    innamebeforetitle=true,
     sorting=nyt,
     sortcase=false,
     sortcites,
@@ -145,9 +146,10 @@
     date=year,
     urldate=long,
 ]{biblatex}
+\DeclareNameAlias{author}{family-given}
+\renewbibmacro*{edition}{\iffieldundef{edition}{}{\printfield{edition} edition}}
 \renewcommand*{\bibfont}{\small}
 \setlength{\bibitemsep}{\parsep}
-\renewbibmacro*{edition}{\iffieldundef{edition}{}{\printfield{edition} edition}}
 
 % Keywords-like commands
 \newcommand{\keywords}[1]{
@@ -172,7 +174,6 @@
 
 % Font and encoding
 \RequirePackage{lmodern}
-\RequirePackage[T1]{fontenc}
 \RequirePackage[sf,bf,nobottomtitles*,]{titlesec}
 \RequirePackage{abstract}
 \titleformat{\section}{\normalfont\sffamily\large\bfseries}{\thesection}{1em}{}
